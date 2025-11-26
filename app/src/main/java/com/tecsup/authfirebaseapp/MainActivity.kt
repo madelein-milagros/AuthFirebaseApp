@@ -12,11 +12,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AuthFirebaseAppTheme {
-<<<<<<< HEAD
-                AppNavigation()   
-=======
                 AppNavigation()
->>>>>>> 6beb485 (Actualizar proyecto con CRUD y mejoras)
             }
         }
     }
