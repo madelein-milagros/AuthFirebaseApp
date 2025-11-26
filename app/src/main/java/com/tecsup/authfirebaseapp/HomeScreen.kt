@@ -26,7 +26,7 @@ fun HomeScreen(navController: NavController) {
     val auth = FirebaseAuth.getInstance()
     val user = auth.currentUser
 
-    // ❗ Si el usuario no está logueado lo manda a Login
+    //  Si el usuario no está logueado lo manda a Login
     if (user == null) {
         LaunchedEffect(Unit) {
             navController.navigate("login") {
@@ -45,7 +45,7 @@ fun HomeScreen(navController: NavController) {
     var cursoIdEditando by remember { mutableStateOf<String?>(null) }
     var cursos by remember { mutableStateOf<List<Curso>>(emptyList()) }
 
-    // 🔥 Cargar cursos en tiempo real
+    //  Cargar cursos en tiempo real
     LaunchedEffect(user.uid) {
         cursosCollection.whereEqualTo("userId", user.uid)
             .addSnapshotListener { snapshot, error ->
@@ -64,14 +64,14 @@ fun HomeScreen(navController: NavController) {
             }
     }
 
-    // 👉 limpiar formulario
+    //  limpiar formulario
     fun limpiarFormulario() {
         nombre = ""
         descripcion = ""
         cursoIdEditando = null
     }
 
-    // 👉 GUARDAR o EDITAR curso
+    //  GUARDAR o EDITAR curso
     fun guardarCurso() {
         if (nombre.isBlank()) {
             Toast.makeText(context, "Ingresa un nombre", Toast.LENGTH_SHORT).show()
@@ -102,7 +102,7 @@ fun HomeScreen(navController: NavController) {
         }
     }
 
-    // 👉 ELIMINAR CURSO (ESTA ES LA FUNCIÓN QUE TE FALTABA)
+    //  ELIMINAR CURSO (ESTA ES LA FUNCIÓN QUE TE FALTABA)
     fun eliminarCurso(curso: Curso) {
         cursosCollection.document(curso.id)
             .delete()
@@ -114,7 +114,7 @@ fun HomeScreen(navController: NavController) {
             }
     }
 
-    // 🧱 UI
+    //  UI
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(onClick = {}) {
