@@ -12,7 +12,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AuthFirebaseAppTheme {
-                AppNavigation()   //  ← sin parámetros
+                AppNavigation()   
             }
         }
     }
